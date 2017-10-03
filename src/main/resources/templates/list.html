@@ -7,6 +7,13 @@
     </head>
     <body>
         <h1 th:text="${title}"></h1>
+
+        <form action="#" th:action="@{/student}" th:object="${student}" method="post">
+            Firstname: <input type="text" th:field="*{firstname}" /> <br />
+            Lastname: <input type="text" th:field="*{lastname}" /> <br />
+            Neptun: <input type="text" th:field="*{neptun}" /> <br />
+            <button type="submit">Submit</button>
+        </form>
         
         <ul>
             <li th:each="s : ${students}" th:text="${s}">names</li>

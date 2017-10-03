@@ -15,4 +15,8 @@ public class StudentService {
     public List<Student> studentNamesStartingWith(String segment) {
         return studentRepository.findByFirstNameSegment(segment);
     }
+    
+    public Student save(Student student) {
+        return studentRepository.save(student);
+    }
 }
