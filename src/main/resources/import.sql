@@ -3,3 +3,6 @@ insert into student (first_name, last_name, neptun) values ('John', 'Doe', 'abcd
 insert into student (first_name, last_name, neptun) values ('Johnathan', 'Apple', 'abcdef3');
 insert into student (first_name, last_name, neptun) values ('Bob', null, 'abcdef4');
 insert into student (first_name, last_name, neptun) values ('Ian', 'Thorne', 'abcdef5');
+
+insert into user (username, password, email) values ('gyozke', 'a', 'gyozke@alma.hu');
+
