@@ -1,6 +1,6 @@
 package hello.repository;
 
-import hello.model.Student;
+import hello.entity.Student;
 import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
