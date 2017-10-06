@@ -1,8 +1,7 @@
 package hello.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.List;
+import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -10,7 +9,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,29 +19,32 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
-
-    @OneToMany(targetEntity = Issue.class, mappedBy = "user")
-    @JsonIgnoreProperties("user")
-    @JsonIgnore
-    private List<Issue> issues;
+public class Issue {
+    
+    @JoinColumn
+    @ManyToOne(targetEntity = User.class, optional = false)
+    @JsonIgnoreProperties("issues")
+    private User user;
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     
-    private String username;
-    
-    @Column(nullable=false, unique = true)
-    private String email;
-    
-    private String password;
-    
     @Column(nullable = false)
+    private Timestamp timestamp;
+
     @Enumerated(EnumType.STRING)
-    private Role role;
-    
-    public enum Role {
-        GUEST, USER, ADMIN
+    @Column(nullable = false)
+    private Status status;
+
+    @Column(nullable = false)
+    private String location;
+
+    @Column(nullable = false)
+    private String description;
+
+    public enum Status {
+        ADDED, READY, ONGOING
     }
+    
 }

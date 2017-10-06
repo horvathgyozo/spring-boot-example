@@ -30,7 +30,7 @@ public class UserApiController {
     public ResponseEntity<User> register(@RequestBody User user) {
         return ResponseEntity.ok(userService.register(user));
     }
-    /**
+    /*
     { 
         "username": "gyozke",
         "password": "a",
@@ -53,7 +53,7 @@ public class UserApiController {
 //            return ResponseEntity.badRequest().build();
     }
     
-    @PostMapping("/login")
+    @PostMapping("/logout")
     public ResponseEntity<User> logout(@RequestBody User user) {
         userService.logout();
         return ResponseEntity.ok().build();
