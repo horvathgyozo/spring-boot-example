@@ -54,8 +54,8 @@ public class UserApiController {
     }
     
     @PostMapping("/logout")
-    public ResponseEntity<User> logout(@RequestBody User user) {
+    public ResponseEntity<User> logout() {
         userService.logout();
-        return ResponseEntity.ok().build();
+        return ResponseEntity.status(204).build();
     }
 }
