@@ -14,3 +14,13 @@ insert into issue (user_id, description, location, status, timestamp) values (1,
 insert into issue (user_id, description, location, status, timestamp) values (2, 'd', 'd', 'ADDED', current_timestamp);
 insert into issue (user_id, description, location, status, timestamp) values (2, 'e', 'e', 'ADDED', current_timestamp);
 
+
+insert into message (issue_id, user_id, text) values (1, 1, 'alma');
+insert into message (issue_id, user_id, text) values (1, 2, 'korte');
+insert into message (issue_id, user_id, text) values (2, 1, 'alma');
+insert into message (issue_id, user_id, text) values (2, 1, 'korte');
+insert into message (issue_id, user_id, text) values (2, 2, 'szilva');
+insert into message (issue_id, user_id, text) values (3, 1, 'alma');
+insert into message (issue_id, user_id, text) values (3, 2, 'korte');
+insert into message (issue_id, user_id, text) values (4, 1, 'alma');
+insert into message (issue_id, user_id, text) values (5, 1, 'alma');

@@ -22,7 +22,6 @@ import lombok.NoArgsConstructor;
 public class User {
 
     @OneToMany(targetEntity = Issue.class, mappedBy = "user")
-    @JsonIgnoreProperties("user")
     @JsonIgnore
     private List<Issue> issues;
     
