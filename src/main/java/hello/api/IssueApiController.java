@@ -2,8 +2,10 @@ package hello.api;
 
 import hello.annotation.Role;
 import hello.entity.Issue;
+import hello.entity.Message;
 import static hello.entity.User.Role.*;
 import hello.service.IssueService;
+import hello.service.MessageService;
 import hello.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +27,9 @@ public class IssueApiController {
 
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private MessageService messageService;
     
     @Role({ADMIN, USER})
     @GetMapping
@@ -57,5 +62,11 @@ public class IssueApiController {
     private ResponseEntity delete(@PathVariable long id) {
         issueService.delete(id);
         return ResponseEntity.ok().build();
+    }
+    
+    @Role({ADMIN, USER})
+    @PostMapping("/{id}/message")
+    private ResponseEntity saveMessage(@PathVariable long id, @RequestBody Message message) {
+        return ResponseEntity.ok(messageService.create(message, issueService.read(id), userService.getLoggedInUser()));
     }
 }

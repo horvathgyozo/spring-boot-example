@@ -26,7 +26,7 @@ public class Issue {
     
     @JoinColumn
     @ManyToOne(targetEntity = User.class, optional = false)
-    @JsonIgnore
+//    @JsonIgnore
     private User user;
     
     @OneToMany(targetEntity = Message.class, mappedBy = "issue")
